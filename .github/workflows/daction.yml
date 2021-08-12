@@ -21,4 +21,6 @@ jobs:
           DOCKER_USER: cosminionut1996
           DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          docker login ghcr.io -u $DOCKER_USER --password $DOCKER_PASSWORD
+          echo $DOCKER_PASSWORD
+          docker login ghcr.io -u $DOCKER_USER --password-stdin
+          
