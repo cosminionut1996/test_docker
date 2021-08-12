@@ -1,0 +1,12 @@
+name: Docker Action
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # name: A job to build the docker image
+    steps:
+      - name: docker build
+        run:  |
+          docker build . -t cosminionut1996/test_docker:latest
