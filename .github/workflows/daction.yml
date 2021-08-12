@@ -4,10 +4,21 @@ on: [push]
 
 jobs:
   build:
+    name: Build and Push Docker Image
     runs-on: ubuntu-latest
-    # name: A job to build the docker image
+
     steps:
       - uses: actions/checkout@v2
+
       - name: docker build
         run:  |
           docker build . -t cosminionut1996/test_docker:latest
+
+      - name: docker login
+        env:
+          REGISTRY: ghcr.io
+          IMAGE_NAME: ${{ github.repository}}
+          DOCKER_USER: cosminionut1996
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          docker login ghcr.io -u $DOCKER_USER --password $DOCKER_PASSWORD
