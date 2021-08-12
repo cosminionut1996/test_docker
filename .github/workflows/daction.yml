@@ -12,7 +12,7 @@ jobs:
 
       - name: docker build
         run:  |
-          docker build . -t cosminionut1996/test_docker:latest
+          docker build . -t ghcr.io/cosminionut1996/test_docker:latest
 
       - name: docker login
         env:
