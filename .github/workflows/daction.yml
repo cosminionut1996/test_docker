@@ -27,4 +27,4 @@ jobs:
 
       - name: docker push
         run: |
-          docker push cosminionut1996/test_docker:latest
+          docker push ghcr.io/cosminionut1996/test_docker:latest
