@@ -17,13 +17,13 @@ jobs:
       - name: docker login
         env:
           REGISTRY: ghcr.io
-          CONTAINER_REGISTRY_PAT: ${{ CONTAINER_REGISTRY_PAT }}
-          IMAGE_NAME: ${{ github.repository}}
+          PAT: ${{ secrets.CONTAINER_REGISTRY_PAT }}
+          IMAGE_NAME: ${{ github.repository }}
           DOCKER_USER: cosminionut1996
           DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
 
         run: |
-          echo "$CONTAINER_REGISTRY_PAT" | docker login ghcr.io -u $DOCKER_USER --password-stdin
+          echo "$PAT" | docker login ghcr.io -u $DOCKER_USER --password-stdin
 
       - name: docker push
         run: |
