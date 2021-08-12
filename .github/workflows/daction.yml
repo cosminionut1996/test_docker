@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     # name: A job to build the docker image
     steps:
+      - uses: actions/checkout@v2
       - name: docker build
         run:  |
           docker build . -t cosminionut1996/test_docker:latest
